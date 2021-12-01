@@ -3,7 +3,7 @@ import type {
   UserShippingAddress as Address,
   UserAddressItem as AddressItem,
   UserShippingAddressSearchCriteria
-} from '@vue-storefront/sylius-api';
+} from '@realtainment/sylius-api';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function getAddresses(shipping, criteria?: UserShippingAddressSearchCriteria): AddressItem[] {

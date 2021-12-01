@@ -3,7 +3,7 @@ import type {
   UserBillingAddress as Address,
   UserAddressItem as AddressItem,
   UserBillingAddressSearchCriteria
-} from '@vue-storefront/sylius-api';
+} from '@realtainment/sylius-api';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function getAddresses(billing, criteria?: UserBillingAddressSearchCriteria): AddressItem[] {

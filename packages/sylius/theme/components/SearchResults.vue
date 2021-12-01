@@ -90,7 +90,7 @@ import {
   SfImage
 } from '@storefront-ui/vue';
 import { ref, watch, computed } from '@vue/composition-api';
-import { productGetters } from '@vue-storefront/sylius';
+import { productGetters } from '@realtainment/sylius';
 
 export default {
   name: 'SearchResults',

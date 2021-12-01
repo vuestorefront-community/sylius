@@ -15,7 +15,7 @@ export const getShippingMethodsQuery = gql`
   ) {
     shippingMethods(
       enabled: true,
-      zone_code: $zone
+      zone_members_code: $zone
     ) {
       collection {
         code

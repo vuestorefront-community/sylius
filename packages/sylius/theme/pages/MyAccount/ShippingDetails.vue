@@ -77,7 +77,7 @@ import {
 } from '@storefront-ui/vue';
 import UserAddress from '~/components/UserAddress';
 import ShippingAddressForm from '~/components/MyAccount/ShippingAddressForm';
-import { useUserShipping, userShippingGetters } from '@vue-storefront/sylius';
+import { useUserShipping, userShippingGetters } from '@realtainment/sylius';
 import { ref, computed } from '@vue/composition-api';
 import { onSSR } from '@vue-storefront/core';
 

@@ -101,6 +101,7 @@ describe('[sylius-api-client] cart', () => {
   });
 
   it('gets payment methods', async () => {
+    defaultSettings.locale = 'en_US';
     const context = {
       config: defaultSettings,
       client: {
@@ -184,6 +185,7 @@ describe('[sylius-api-client] cart', () => {
   });
 
   it('gets shipping methods', async () => {
+    defaultSettings.locale = 'en_US';
     const context = {
       config: defaultSettings,
       client: {

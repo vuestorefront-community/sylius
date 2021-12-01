@@ -205,7 +205,7 @@ import {
 } from '@storefront-ui/vue';
 import { ref, computed, onMounted } from '@vue/composition-api';
 import { useUiNotification } from '~/composables/';
-import { useBilling, useShipping, useUserShipping, userShippingGetters, useUser } from '@vue-storefront/sylius';
+import { useBilling, useShipping, useUserShipping, userShippingGetters, useUser } from '@realtainment/sylius';
 import { required, min, digits } from 'vee-validate/dist/rules';
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate';
 import { onSSR, useVSFContext } from '@vue-storefront/core';

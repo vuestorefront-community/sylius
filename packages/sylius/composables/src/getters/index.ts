@@ -1,7 +1,6 @@
 /* istanbul ignore file */
 import cartGetters from './cartGetters';
 import categoryGetters from './categoryGetters';
-import checkoutGetters from './checkoutGetters';
 import facetGetters from './facetGetters';
 import productGetters from './productGetters';
 import reviewGetters from './reviewGetters';
@@ -14,7 +13,6 @@ import wishlistGetters from './wishlistGetters';
 export {
   cartGetters,
   categoryGetters,
-  checkoutGetters,
   facetGetters,
   productGetters,
   reviewGetters,

@@ -1,8 +1,11 @@
 module.exports = {
   integrations: {
     sylius: {
-      location: '@vue-storefront/sylius-api/server',
+      location: '@realtainment/sylius-api/server',
       configuration: {
+        api: 'https://sylius-vsf2.bitbag.shop/api/v2/graphql',
+        acceptLanguage: ['en', 'de'],
+        locale: 'en_US',
         cookies: {
           currencyCookieName: 'vsf-currency',
           countryCookieName: 'vsf-country',

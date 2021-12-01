@@ -1,9 +1,6 @@
-import {ClientConfig} from './types';
-
-export const defaultSettings: ClientConfig = {
-  api: 'https://sylius-vsf2.bitbag.shop/api/v2/graphql',
-  acceptLanguage: ['en', 'de'],
-  locale: 'en_US',
+export const defaultSettings = {
+  locale: null,
+  acceptLanguage: null,
   cookies: {
     currencyCookieName: 'vsf-currency',
     countryCookieName: 'vsf-country',

@@ -110,7 +110,7 @@ import {
   SfProperty
 } from '@storefront-ui/vue';
 import { computed, ref } from '@vue/composition-api';
-import { useUserOrder, orderGetters, productGetters } from '@vue-storefront/sylius';
+import { useUserOrder, orderGetters, productGetters } from '@realtainment/sylius';
 import { AgnosticOrderStatus } from '@vue-storefront/core';
 import { onSSR } from '@vue-storefront/core';
 

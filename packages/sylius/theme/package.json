@@ -1,5 +1,5 @@
 {
-  "name": "@vue-storefront/sylius-theme",
+  "name": "@realtainment/sylius-theme",
   "version": "1.0.2",
   "scripts": {
     "dev": "nuxt",
@@ -18,7 +18,7 @@
     "@vue-storefront/middleware": "^2.3.0",
     "@vue-storefront/nuxt": "^2.3.0",
     "@vue-storefront/nuxt-theme": "^2.3.0",
-    "@vue-storefront/sylius": "^1.1.2",
+    "@realtainment/sylius": "^1.0.0F",
     "atob": "^2.1.2",
     "cookie-universal-nuxt": "^2.1.3",
     "core-js": "^2.6.5",
@@ -34,6 +34,7 @@
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-jest": "^24.1.0",
     "jest": "^24.1.0",
-    "vue-jest": "^4.0.0-0"
+    "vue-jest": "^4.0.0-0",
+    "ts-loader": "^8.0.3"
   }
 }

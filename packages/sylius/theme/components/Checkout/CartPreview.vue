@@ -87,7 +87,7 @@ import {
 } from '@storefront-ui/vue';
 import { onSSR } from '@vue-storefront/core';
 import { computed, ref } from '@vue/composition-api';
-import { useCart, cartGetters } from '@vue-storefront/sylius';
+import { useCart, cartGetters } from '@realtainment/sylius';
 import { useUiNotification } from '~/composables/';
 
 export default {

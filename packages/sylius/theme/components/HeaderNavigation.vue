@@ -32,7 +32,7 @@
 import { onSSR } from '@vue-storefront/core';
 import { SfMenuItem, SfModal } from '@storefront-ui/vue';
 import { useUiState } from '~/composables';
-import { useCategory } from '@vue-storefront/sylius';
+import { useCategory } from '@realtainment/sylius';
 export default {
   name: 'HeaderNavigation',
   components: {

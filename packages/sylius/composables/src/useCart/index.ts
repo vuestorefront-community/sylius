@@ -8,7 +8,7 @@ import type {
   Cart,
   CartItem,
   Product
-} from '@vue-storefront/sylius-api';
+} from '@realtainment/sylius-api';
 const params: UseCartFactoryParams<Cart, CartItem, Product> = {
   load: async (context: Context) => {
     const apiState = context.$sylius.config.state;

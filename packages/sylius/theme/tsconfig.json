@@ -29,6 +29,10 @@
     ]
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "tests/e2e/*",
+    "_theme",
+    ".nuxt",
+    "dist"
   ]
 }

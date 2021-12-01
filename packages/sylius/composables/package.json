@@ -1,6 +1,6 @@
 {
-  "name": "@vue-storefront/sylius",
-  "version": "1.0.2",
+  "name": "@realtainment/sylius",
+  "version": "1.0.1",
   "sideEffects": false,
   "main": "lib/index.cjs.js",
   "module": "lib/index.es.js",
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@vue-storefront/core": "^2.3.3",
-    "@vue-storefront/sylius-api": "^1.1.2",
+    "@realtainment/sylius-api": "^1.0.0",
     "date-fns": "^2.23.0"
   },
   "devDependencies": {

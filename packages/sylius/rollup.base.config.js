@@ -20,8 +20,7 @@ export function generateBaseConfig(pkg) {
     plugins: [
       typescript({
         // eslint-disable-next-line global-require
-        typescript: require('typescript'),
-        objectHashIgnoreUnknownHack: false
+        typescript: require('typescript')
       }),
       terser()
     ]

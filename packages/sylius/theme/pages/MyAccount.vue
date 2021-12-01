@@ -25,10 +25,6 @@
         <SfContentPage title="Order history">
           <OrderHistory />
         </SfContentPage>
-
-        <SfContentPage title="My reviews">
-          <MyReviews />
-        </SfContentPage>
       </SfContentCategory>
 
       <SfContentPage title="Log out" />
@@ -38,11 +34,10 @@
 <script>
 import { SfBreadcrumbs, SfContentPages } from '@storefront-ui/vue';
 import { computed, onBeforeUnmount } from '@vue/composition-api';
-import { useUser } from '@vue-storefront/sylius';
+import { useUser } from '@realtainment/sylius';
 import MyProfile from './MyAccount/MyProfile';
 import ShippingDetails from './MyAccount/ShippingDetails';
 import OrderHistory from './MyAccount/OrderHistory';
-import MyReviews from './MyAccount/MyReviews';
 import {
   mapMobileObserver,
   unMapMobileObserver

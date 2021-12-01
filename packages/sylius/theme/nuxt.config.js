@@ -4,7 +4,7 @@ import theme from './themeConfig';
 
 export default {
   server: {
-    port: 3003,
+    port: 3000,
     host: '0.0.0.0'
   },
   head: {
@@ -41,6 +41,7 @@ export default {
   loading: { color: '#fff' },
   buildModules: [
     // to core
+    '@nuxtjs/composition-api/module',
     '@nuxt/typescript-build',
     '@nuxtjs/style-resources',
     ['@vue-storefront/nuxt', {
@@ -49,11 +50,11 @@ export default {
       // @core-development-only-end
       useRawSource: {
         dev: [
-          '@vue-storefront/sylius',
+          '@realtainment/sylius',
           '@vue-storefront/core'
         ],
         prod: [
-          '@vue-storefront/sylius',
+          '@realtainment/sylius',
           '@vue-storefront/core'
         ]
       }
@@ -62,8 +63,8 @@ export default {
     ['@vue-storefront/nuxt-theme', {
       generate: {
         replace: {
-          apiClient: '@vue-storefront/sylius-api',
-          composables: '@vue-storefront/sylius'
+          apiClient: '@realtainment/sylius-api',
+          composables: '@realtainment/sylius'
         }
       }
     }],
@@ -71,7 +72,7 @@ export default {
     /* project-only-start
     ['@vue-storefront/nuxt-theme'],
     project-only-end */
-    ['@vue-storefront/sylius/nuxt', {}]
+    ['@realtainment/sylius/nuxt', {}]
   ],
   modules: [
     'nuxt-i18n',
