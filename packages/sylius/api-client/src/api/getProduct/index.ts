@@ -2,6 +2,11 @@ import { CustomQuery } from '@vue-storefront/core';
 import { BaseQuery } from './queries';
 import { ProductInput } from '../../types';
 import { Logger } from '@vue-storefront/core';
+
+type ProductSort = {
+  createdAt: string
+}
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default async function getProduct(context, params, customQuery?: CustomQuery) {
   const variables: ProductInput = {
@@ -16,7 +21,7 @@ export default async function getProduct(context, params, customQuery?: CustomQu
   Logger.info(params);
 
   if (params.sort) {
-    const sortObject = {};
+    const sortObject = {} as ProductSort;
 
     switch (params.sort) {
       case 'latest':
