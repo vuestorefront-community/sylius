@@ -14,7 +14,7 @@ const factoryParams = {
 
     try {
       const data = await Promise.all([
-        context.$sylius.api.getCategory(),
+        context.$sylius.api.getCategory(params.input),
         context.$sylius.api.getProduct(params.input)
       ]);
       categories = data[0];
@@ -41,9 +41,8 @@ const factoryParams = {
       totalPages: pagination.lastPage,
       availableFilters: [],
       availableSortingOptions: [
-        { type: 'sort', id: 'default', value: 'Default' },
-        { type: 'sort', id: 'createdAt_ASC', value: 'Created at - ASC' },
-        { type: 'sort', id: 'createdAt_DESC', value: 'Created at - DESC' }
+        { type: 'sort', id: 'latest', value: 'Latest' },
+        { type: 'sort', id: 'oldest', value: 'Oldest' }
       ],
       perPageOptions: [10, 20, 50],
       itemsPerPage: pagination.itemsPerPage

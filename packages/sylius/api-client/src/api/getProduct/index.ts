@@ -16,10 +16,16 @@ export default async function getProduct(context, params, customQuery?: CustomQu
   Logger.info(params);
 
   if (params.sort) {
-    const sortArray = params.sort.split('_');
     const sortObject = {};
-    sortObject[sortArray[0]] = sortArray[1];
-    variables.orderBy.push(sortObject);
+
+    switch (params.sort) {
+      case 'latest':
+        sortObject.createdAt = 'DESC';
+        break;
+      case 'oldest':
+        sortObject.createdAt = 'ASC';
+        break;
+    }
   }
 
   const { productsQuery } = context.extendQuery(
