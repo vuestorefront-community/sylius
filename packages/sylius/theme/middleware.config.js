@@ -15,6 +15,10 @@ module.exports = {
           customerRefreshCookieName: 'vsf-customer-token',
           customerIdCookieName: 'vsf-customer-id',
           storeCookieName: 'vsf-store'
+        },
+        imagePaths: {
+          thumbnail: 'https://sylius-vsf2.bitbag.shop/media/cache/sylius_shop_product_thumbnail',
+          regular: 'https://sylius-vsf2.bitbag.shop/media/cache/sylius_shop_product_large_thumbnail'
         }
       }
     }

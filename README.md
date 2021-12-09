@@ -12,7 +12,7 @@ Check the [DEMO](https://vsf-next.ournights-staging.rocks/).
 ## How to start if you want to try out the integration
 
  - install the awesome [Sylius GraphQL plugin](https://packagist.org/packages/bitbag/graphql-plugin) made by our friends from BitBag
- - change your GraphQL endpoint in `packages/sylius/theme/middleware.config.js`
+ - change your GraphQL endpoint & image paths in `packages/sylius/theme/middleware.config.js`
  - build integration packages: `yarn build:sylius`
  - start developing: `yarn dev:sylius`
 

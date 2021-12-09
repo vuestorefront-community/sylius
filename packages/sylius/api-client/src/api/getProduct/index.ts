@@ -37,19 +37,25 @@ export default async function getProduct(context, params, customQuery?: CustomQu
     fetchPolicy: 'no-cache'
   });
 
-  const { locale } = context.config;
+  const { locale, imagePaths } = context.config;
 
   const pagination = data.products.paginationInfo;
   const products = data.products.collection.map(item => {
-    item.attributes = item.attributes.edges
-      .map(edges => edges.node)
-      .filter(node => node.type === 'integer' || node.localeCode === locale);
+    if (item.attributes) {
+      item.attributes = item.attributes.edges
+        .map(edges => edges.node)
+        .filter(node => node.type === 'integer' || node.localeCode === locale);
+    }
+
     const mapCategories = item.productTaxons.edges.map(edge => edge.node);
     item._categoriesRef = mapCategories.map(cat => cat.taxon.id);
-    item.options = item.options.edges.map(edge => {
-      edge.node.values = edge.node.values.edges.map(e => e.node);
-      return edge.node;
-    });
+
+    if (item.options) {
+      item.options = item.options.edges.map(edge => {
+        edge.node.values = edge.node.values.edges.map(e => e.node);
+        return edge.node;
+      });
+    }
     item.variants = item.variants.collection.map(variant => {
       variant.optionValues = variant.optionValues.edges.map(e => e.node);
       variant.channelPricings = variant.channelPricings.collection;
@@ -58,9 +64,8 @@ export default async function getProduct(context, params, customQuery?: CustomQu
     item.selectedVariant = item.variants[0];
 
     const mapImages = item.imagesRef.collection;
-    // @todo move image path to config
-    item.images = mapImages.map(img => `https://sylius-vsf2.bitbag.shop/media/cache/sylius_shop_product_thumbnail/${img.path}`);
-    item.galleryImages = mapImages.map(img => `https://sylius-vsf2.bitbag.shop/media/cache/sylius_shop_product_large_thumbnail/${img.path}`);
+    item.images = mapImages.map(img => [imagePaths.thumbnail, img.path].join('/'));
+    item.galleryImages = mapImages.map(img => [imagePaths.regular, img.path].join('/'));
 
     delete item.productTaxons;
     delete item.imagesRef;
