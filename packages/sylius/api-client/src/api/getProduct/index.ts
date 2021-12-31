@@ -1,5 +1,6 @@
 import { CustomQuery } from '@vue-storefront/core';
 import { BaseQuery } from './queries';
+import gql from 'graphql-tag';
 import { ProductInput } from '../../types';
 import { Logger } from '@vue-storefront/core';
 
@@ -33,55 +34,70 @@ export default async function getProduct(context, params, customQuery?: CustomQu
     }
   }
 
-  const { productsQuery } = context.extendQuery(
-    customQuery, {
-      productsQuery: {
-        query: BaseQuery,
-        variables
+  let pagination = {};
+  let products = [];
+
+  try {
+    const { productsQuery } = context.extendQuery(
+      customQuery,
+      {
+        productsQuery: {
+          query: BaseQuery,
+          variables
+        }
       }
-    }
-  );
+    );
 
-  const { data } = await context.client.query({
-    query: productsQuery.query,
-    variables: productsQuery.variables,
-    fetchPolicy: 'no-cache'
-  });
-
-  const { locale, imagePaths } = context.config;
-
-  const pagination = data.products.paginationInfo;
-  const products = data.products.collection.map(item => {
-    if (item.attributes) {
-      item.attributes = item.attributes.edges
-        .map(edges => edges.node)
-        .filter(node => node.type === 'integer' || node.localeCode === locale);
-    }
-
-    const mapCategories = item.productTaxons.edges.map(edge => edge.node);
-    item._categoriesRef = mapCategories.map(cat => cat.taxon.id);
-
-    if (item.options) {
-      item.options = item.options.edges.map(edge => {
-        edge.node.values = edge.node.values.edges.map(e => e.node);
-        return edge.node;
-      });
-    }
-    item.variants = item.variants.collection.map(variant => {
-      variant.optionValues = variant.optionValues.edges.map(e => e.node);
-      variant.channelPricings = variant.channelPricings.collection;
-      return variant;
+    const { data } = await context.client.query({
+      query: gql`${productsQuery.query}`,
+      variables: productsQuery.variables,
+      fetchPolicy: 'no-cache'
     });
-    item.selectedVariant = item.variants[0];
 
-    const mapImages = item.imagesRef.collection;
-    item.images = mapImages.map(img => [imagePaths.thumbnail, img.path].join('/'));
-    item.galleryImages = mapImages.map(img => [imagePaths.regular, img.path].join('/'));
+    const { locale, imagePaths } = context.config;
+    pagination = data.products.paginationInfo;
+    products = data.products.collection.map(item => {
+      if (item.attributes) {
+        item.attributes = item.attributes.edges
+          .map(edges => edges.node)
+          .filter(node => node.type === 'integer' || node.localeCode === locale);
+      }
 
-    delete item.productTaxons;
-    delete item.imagesRef;
-    return item;
-  });
+      if (item.productTaxons) {
+        const mapCategories = item.productTaxons.edges.map(edge => edge.node);
+        item._categoriesRef = mapCategories.map(cat => cat.taxon.id);
+        delete item.productTaxons;
+      }
+
+      if (item.options) {
+        item.options = item.options.edges.map(edge => {
+          edge.node.values = edge.node.values.edges.map(e => e.node);
+          return edge.node;
+        });
+      }
+
+      if (item.variants) {
+        item.variants = item.variants.collection.map(variant => {
+          variant.optionValues = variant.optionValues.edges.map(e => e.node);
+          if (variant.channelPricings) {
+            variant.channelPricings = variant.channelPricings.collection;
+          }
+          return variant;
+        });
+      }
+      item.selectedVariant = item?.variants?.length ? item.variants?.[0] : null;
+
+      if (item.imagesRef) {
+        const mapImages = item.imagesRef.collection;
+        item.images = mapImages.map(img => [imagePaths.thumbnail, img.path].join('/'));
+        item.galleryImages = mapImages.map(img => [imagePaths.regular, img.path].join('/'));
+        delete item.imagesRef;
+      }
+      return item;
+    });
+  } catch (err) {
+    console.log('Sylius getProduct error', err);
+  }
 
   return {
     products,

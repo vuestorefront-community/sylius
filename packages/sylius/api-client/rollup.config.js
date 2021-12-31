@@ -1,7 +1,7 @@
 import pkg from './package.json';
 import graphql from 'rollup-plugin-graphql';
 import typescript from 'rollup-plugin-typescript2';
-import { generateBaseConfig } from '../../rollup.base.config';
+import { generateBaseConfig } from '../rollup.base.config';
 
 const server = {
   input: 'src/index.server.ts',

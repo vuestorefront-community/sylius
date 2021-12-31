@@ -1,13 +1,25 @@
+import { CustomQuery, Context } from '@vue-storefront/core';
 import { BaseQuery } from './queries';
+import gql from 'graphql-tag';
+export default async function getCategory(context: Context, params, customQuery?: CustomQuery): Promise<any> {
+  const { categoryList } = context.extendQuery(
+    customQuery,
+    {
+      categoryList: {
+        query: BaseQuery,
+        variables: params
+      }
+    }
+  );
 
-export default async function getCategory(context, params) {
+  // Pass query and variables to GraphQL client
   const { data } = await context.client.query({
-    query: BaseQuery,
-    variables: params
+    query: gql`${categoryList.query}`,
+    variables: categoryList.variables
   });
 
   const categories = data.taxa.collection.map(cat => {
-    cat.children = cat.children.collection;
+    if (cat.children) cat.children = cat.children.collection;
     return cat;
   });
 

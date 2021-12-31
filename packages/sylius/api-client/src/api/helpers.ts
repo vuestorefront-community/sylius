@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
-
-export const extendQuery = (context, query, variables, customQuery?) => {
+import { CustomQuery } from '@vue-storefront/core';
+export const extendQuery = (context, query, variables, customQuery?: CustomQuery) => {
   const { queryGql } = context.extendQuery(
     customQuery, {
       queryGql: { query, variables }
@@ -9,7 +9,7 @@ export const extendQuery = (context, query, variables, customQuery?) => {
   return queryGql;
 };
 
-export const query = async(context, query, variables) => {
+export const query = async (context, query, variables) => {
   const { data } = await context.client.query({ query, variables });
   return data;
 };
