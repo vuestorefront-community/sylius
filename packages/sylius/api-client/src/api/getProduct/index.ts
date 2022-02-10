@@ -1,8 +1,6 @@
 import { CustomQuery } from '@vue-storefront/core';
 import { BaseQuery } from './queries';
 import gql from 'graphql-tag';
-import { ProductInput } from '../../types';
-import { Logger } from '@vue-storefront/core';
 
 type ProductSort = {
   createdAt: string
@@ -10,17 +8,6 @@ type ProductSort = {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default async function getProduct(context, params, customQuery?: CustomQuery) {
-  const variables: ProductInput = {
-    search: params.search ? params.search : null,
-    slug: params.slug ? params.slug : null,
-    categorySlug: params.categorySlug,
-    itemsPerPage: params.itemsPerPage,
-    page: params.page,
-    orderBy: []
-  };
-
-  Logger.info(params);
-
   if (params.sort) {
     const sortObject = {} as ProductSort;
 
@@ -43,7 +30,7 @@ export default async function getProduct(context, params, customQuery?: CustomQu
       {
         productsQuery: {
           query: BaseQuery,
-          variables
+          variables: params
         }
       }
     );
