@@ -77,7 +77,7 @@ export const apolloLinkFactory = (settings, handlers?: {
   return ApolloLink.from([onErrorLink, errorRetry, baseAuthLink.concat(httpLink)]);
 };
 
-export const authLinkFactory = ({ state }) => setContext((apolloReq, { headers }) => {
+export const authLinkFactory = ({ state, customHeaders }) => setContext((apolloReq, { headers }) => {
   Logger.debug('Apollo authLinkFactory', apolloReq.operationName);
 
   const token: string = state.getCustomerToken();
@@ -89,7 +89,8 @@ export const authLinkFactory = ({ state }) => setContext((apolloReq, { headers }
   return {
     headers: {
       ...headers,
-      ...(token ? { authorization: `Bearer ${token}` } : {})
+      ...(token ? { authorization: `Bearer ${token}` } : {}),
+      ...customHeaders
     }
   };
 });
@@ -100,7 +101,8 @@ export const apolloClientFactory = (customOptions: Record<string, any>) => new A
 });
 
 export const createSyliusConnection = (settings) => {
-  const authLink = authLinkFactory({ state: settings.state });
+  const { state, customHeaders } = settings;
+  const authLink = authLinkFactory({ state, customHeaders });
 
   const apolloLink = apolloLinkFactory(settings, {
     authLink
