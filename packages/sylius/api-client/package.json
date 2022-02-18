@@ -1,6 +1,6 @@
 {
   "name": "@realtainment/sylius-api",
-  "version": "1.0.8",
+  "version": "1.0.12",
   "server": "server/index.js",
   "main": "lib/index.cjs.js",
   "module": "lib/index.es.js",
