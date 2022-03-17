@@ -1,1 +1,1 @@
-web: yarn build:sylius && yarn start:sylius
+web: yarn && yarn build:sylius && yarn start:sylius
