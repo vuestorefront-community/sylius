@@ -14,7 +14,8 @@
     "dev:sylius": "concurrently \"yarn:dev:sylius:*\"",
     "start:sylius": "cd packages/sylius/theme && yarn start",
     "cli": "cd packages/core/cli && yarn cli",
-    "commit": "cz"
+    "commit": "cz",
+    "postinstall": "yarn"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
