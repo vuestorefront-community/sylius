@@ -74,7 +74,7 @@
     }
   },
   "engines": {
-    "node": "14.17"
+    "node": "14.19.0"
   },
   "dependencies": {
     "concurrently": "^6.4.0"
