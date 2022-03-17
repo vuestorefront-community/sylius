@@ -179,7 +179,7 @@ export default {
       ]);
 
       result.value = {
-        products: searchProductsResults.value,
+        products: searchProductsResults.value.products,
         categories: searchCategoriesResults.value
       };
     }, 1000);

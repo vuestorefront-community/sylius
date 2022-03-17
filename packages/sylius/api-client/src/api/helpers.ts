@@ -23,20 +23,21 @@ export const mutate = async(context, mutation) => {
   return data;
 };
 
-export const transformCartItems = (items) => {
+export const transformCartItems = (context, items) => {
+  const { imagePaths: { thumbnail } } = context.config;
   return items.edges.map(edge => {
     const orderItem = edge.node;
     orderItem.variant.optionValues = orderItem.variant.optionValues.edges.map(edge => edge.node);
     orderItem.variant.product.options = orderItem.variant.product.options.edges.map(edge => edge.node);
     orderItem.variant.product.images = orderItem.variant.product.images.collection.map(
-      image => `https://sylius-vsf2.bitbag.shop/media/cache/sylius_shop_product_thumbnail/${image.path}`
+      image => `${thumbnail}/${image.path}`
     );
     return orderItem;
   });
 };
 
-export const transformCart = (cart) => {
-  cart.items = transformCartItems(cart.items);
+export const transformCart = (context, cart) => {
+  cart.items = transformCartItems(context, cart.items);
   cart.shipments = cart.shipments.edges.length
     ? cart.shipments.edges[0].node
     : [];

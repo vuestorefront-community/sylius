@@ -183,7 +183,7 @@ export default {
     const qty = ref(1);
     const { id, slug } = context.root.$route.params;
     const { isAuthenticated } = useUser();
-    const { products, search } = useProduct('products');
+    const { products: productsResponse, search } = useProduct('products');
     // const { products: relatedProducts, search: searchRelatedProducts, loading: relatedLoading } = useProduct('relatedProducts');
     const relatedProducts = computed(() => []);
     const relatedLoading = false;
@@ -191,6 +191,7 @@ export default {
     const { addItem, loading } = useCart();
     const { reviews: productReviews, search: searchReviews, addReview } = useReview('productReviews');
 
+    const products = computed(() => productsResponse.value.products);
     const product = computed(() => productGetters.getFiltered(products.value, { master: true, attributes: context.root.$route.query })[0]);
 
     const options = computed(() => productGetters.getAttributes(products.value, ['color', 'size']));
