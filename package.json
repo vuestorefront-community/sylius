@@ -15,7 +15,7 @@
     "start:sylius": "cd packages/sylius/theme && yarn start",
     "cli": "cd packages/core/cli && yarn cli",
     "commit": "cz",
-    "postinstall": "yarn build:sylius"
+    "heroku-postbuild": "yarn build:sylius"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
