@@ -1,6 +1,7 @@
 {
   "name": "@realtainment/sylius",
-  "version": "1.0.13",
+  "description": "Sylius Composables",
+  "version": "1.1.0",
   "sideEffects": false,
   "main": "lib/index.cjs.js",
   "module": "lib/index.es.js",
@@ -13,7 +14,7 @@
   },
   "dependencies": {
     "@vue-storefront/core": "^2.3.3",
-    "@realtainment/sylius-api": "^1.0.12",
+    "@realtainment/sylius-api": "^1.1.0",
     "date-fns": "^2.23.0"
   },
   "devDependencies": {
@@ -25,6 +26,7 @@
   },
   "files": [
     "lib/**/*",
-    "nuxt/**/*"
+    "nuxt/**/*",
+    "README.md"
   ]
 }

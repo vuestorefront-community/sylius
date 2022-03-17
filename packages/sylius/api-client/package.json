@@ -1,6 +1,7 @@
 {
   "name": "@realtainment/sylius-api",
-  "version": "1.0.12",
+  "description": "Sylius Api Client",
+  "version": "1.1.0",
   "server": "server/index.js",
   "main": "lib/index.cjs.js",
   "module": "lib/index.es.js",
@@ -29,6 +30,7 @@
   },
   "files": [
     "lib/**/*",
-    "server/**/*"
+    "server/**/*",
+    "README.md"
   ]
 }

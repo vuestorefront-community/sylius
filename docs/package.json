@@ -1,0 +1,23 @@
+{
+  "name": "vsf-integration-docs",
+  "version": "1.0.0-beta.0",
+  "description": "Documentation for Sylius integration for Vue Storefront",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": "https://github.com/vuestorefront/sylius/docs",
+  "scripts": {
+    "dev": "vuepress dev",
+    "build": "vuepress build",
+    "build:docs": "concurrently \"yarn:docs-gen:*\" && concurrently \"yarn:docs-md:*\"",
+    "docs-gen:api": "cd ../packages/sylius/api-client && api-extractor run --local",
+    "docs-gen:composables": "cd ../packages/sylius/composables && api-extractor run --local",
+    "docs-md:api": "api-documenter markdown --i ../packages/docs/api-client --o guide/api-client",
+    "docs-md:composables": "api-documenter markdown --i ../packages/docs/composables --o guide/composables"
+  },
+  "devDependencies": {
+    "@microsoft/api-documenter": "^7.13.75",
+    "@microsoft/api-extractor": "^7.19.1",
+    "concurrently": "^6.4.0",
+    "vuepress": "^1.5.3"
+  }
+}
