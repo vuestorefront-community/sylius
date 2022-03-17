@@ -4,7 +4,7 @@ import theme from './themeConfig';
 
 export default {
   server: {
-    port: 3000,
+    port: process.env.PORT || 3000,
     host: '0.0.0.0'
   },
   head: {
