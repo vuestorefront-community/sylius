@@ -183,7 +183,7 @@ export default {
     const qty = ref(1);
     const { id, slug } = context.root.$route.params;
     const { isAuthenticated } = useUser();
-    const { products: productsResponse, search } = useProduct('products');
+    const { products, search } = useProduct('products');
     // const { products: relatedProducts, search: searchRelatedProducts, loading: relatedLoading } = useProduct('relatedProducts');
     const relatedProducts = computed(() => []);
     const relatedLoading = false;
@@ -191,13 +191,14 @@ export default {
     const { addItem, loading } = useCart();
     const { reviews: productReviews, search: searchReviews, addReview } = useReview('productReviews');
 
-    const products = computed(() => productsResponse.value.products);
-    const product = computed(() => productGetters.getFiltered(products.value, { master: true, attributes: context.root.$route.query })[0]);
+    const product = computed(() => {
+      return products.value.products && productGetters.getFiltered(products.value.products, { master: true, attributes: context.root.$route.query })[0];
+    });
 
-    const options = computed(() => productGetters.getAttributes(products.value, ['color', 'size']));
-    const configuration = computed(() => productGetters.getAttributes(product.value, ['color', 'size']));
-    const categories = computed(() => productGetters.getCategoryIds(product.value));
-    const reviews = computed(() => reviewGetters.getItems(productReviews.value));
+    const options = computed(() => productGetters.getAttributes(products.value?.products, ['color', 'size'])) || [];
+    const configuration = computed(() => productGetters.getAttributes(product?.value, ['color', 'size'])) || [];
+    const categories = computed(() => productGetters.getCategoryIds(product?.value)) || [];
+    const reviews = computed(() => reviewGetters.getItems(productReviews?.value)) || [];
 
     // TODO: Breadcrumbs are temporary disabled because productGetters return undefined. We have a mocks in data
     // const breadcrumbs = computed(() => productGetters.getBreadcrumbs ? productGetters.getBreadcrumbs(product.value) : props.fallbackBreadcrumbs);
