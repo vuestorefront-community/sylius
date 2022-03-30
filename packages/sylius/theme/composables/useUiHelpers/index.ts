@@ -31,7 +31,7 @@ const useUiHelpers = () => {
 
   const getFacetsFromURL = () => {
     return {
-      categorySlug: params.slug_1,
+      categorySlug: Object.values(params).filter(Boolean).join('/'),
       page: parseInt(getQueryParameter(query.page)) || 1,
       phrase: query.phrase,
       sort: query.sort || 'latest',
