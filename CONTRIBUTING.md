@@ -1,11 +1,11 @@
 # Contributing
 
-Yeay! You want to contribute to @vuestorefront/magento2. That's amazing! To smoothen everyone's experience involved with the project please take note of the following guidelines and rules.
+Yeay! You want to contribute to @vuestorefront-community/sylius. That's amazing! To smoothen everyone's experience involved with the project please take note of the following guidelines and rules.
 
 
 ## Found an Issue?
 
-Thank you for reporting any issues you find. We do our best to test and make @vuestorefront/magento2 as solid as possible, but any reported issue is a real help.
+Thank you for reporting any issues you find. We do our best to test and make @vuestorefront-community/sylius as solid as possible, but any reported issue is a real help.
 
 Please follow these guidelines when reporting issues:
 
@@ -13,15 +13,15 @@ Please follow these guidelines when reporting issues:
 - Tag your issue with the tag `bug`
 - Provide a short summary of what you are trying to do
 - Provide the log of the encountered error if applicable
-- Provide the exact version of @vuestorefront/magento2.
+- Provide the exact version of @vuestorefront-community/sylius.
 - Be awesome and consider contributing a [pull request](#want-to-contribute)
 
 ## Want to contribute?
 
-You consider contributing changes to @vuestorefront/magento2 – we dig that!
+You consider contributing changes to @vuestorefront-community/sylius – we dig that!
 Please consider these guidelines when filing a pull request:
 
-> @vuestorefront/magento2 pull requests
+> @vuestorefront-community/sylius pull requests
 
 - Follow the [Coding Rules](#coding-rules)
 - Follow the [Commit Rules](#commit-rules)
@@ -36,7 +36,7 @@ Please consider these guidelines when filing a pull request:
 
 ## Coding Rules
 
-To keep the code base of @vuestorefront/magento2 neat and tidy the following rules apply to every change
+To keep the code base of @vuestorefront-community/sylius neat and tidy the following rules apply to every change
 
 > Coding standards
 
@@ -47,7 +47,7 @@ To keep the code base of @vuestorefront/magento2 neat and tidy the following rul
 ## Commit Rules
 
 To help everyone with understanding the commit history of commitlint the following commit rules are enforced.
-To make your life easier @vuestorefront/magento2 is commitizen-friendly and provides the npm run-script `commit`.
+To make your life easier @vuestorefront-community/sylius is commitizen-friendly and provides the npm run-script `commit`.
 
 > Commit standards
 
