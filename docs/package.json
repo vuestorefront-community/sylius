@@ -9,15 +9,24 @@
     "dev": "vuepress dev",
     "build": "vuepress build",
     "build:docs": "concurrently \"yarn:docs-gen:*\" && concurrently \"yarn:docs-md:*\"",
-    "docs-gen:api": "cd ../packages/sylius/api-client && api-extractor run --local",
-    "docs-gen:composables": "cd ../packages/sylius/composables && api-extractor run --local",
+    "docs-gen:api": "cd ../packages/api-client && api-extractor run --local",
+    "docs-gen:composables": "cd ../packages/composables && api-extractor run --local",
     "docs-md:api": "api-documenter markdown --i ../packages/docs/api-client --o guide/api-client",
     "docs-md:composables": "api-documenter markdown --i ../packages/docs/composables --o guide/composables"
   },
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.13.75",
-    "@microsoft/api-extractor": "^7.19.1",
-    "concurrently": "^6.4.0",
-    "vuepress": "^1.5.3"
+    "@microsoft/api-documenter": "^7.13.7",
+    "@microsoft/api-extractor": "^7.18.3",
+    "@vuepress/plugin-active-header-links": "^1.8.2",
+    "@vuepress/plugin-back-to-top": "^1.8.2",
+    "@vuepress/plugin-medium-zoom": "^1.8.2",
+    "@vuepress/plugin-search": "^1.8.2",
+    "handlebars": "^4.7.7",
+    "typescript": "^4.5.4",
+    "vuepress": "^1.2.0"
+  },
+  "dependencies": {
+    "sass-loader": "^8.0.2",
+    "vue-multiselect": "^2.1.6"
   }
 }

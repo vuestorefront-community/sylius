@@ -1,6 +1,5 @@
 name: "🐛 Bug report"
-description: |
-  Create a report to help us improve
+description: Report errors or unexpected behavior
 labels:
   - bug
   - triage-needed
@@ -9,34 +8,41 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report, please make sure to [search for existing issues](https://github.com/vuestorefront/vue-storefront/issues) before filing a new one!
+        Thanks for taking the time to fill out this bug report, please make sure to [search for existing issues](https://github.com/vuestorefront-community/sylius/issues) before filing a new one!
   - type: textarea
+    id: whattoexpect
     attributes:
-      label: Describe the Bug
-      description: Can you provide a clear and concise description of the bug
+      label: Expected Behavior
+      placeholder: What were you expecting?
+    validations:
+      required: false
+  - type: textarea
+    id: whathappened
+    attributes:
+      label: Actual Behavior
+      placeholder: What happened instead??
     validations:
       required: true
   - type: textarea
-    id: currentbehavior
+    id: solution
     attributes:
-      label: Current behavior
-      placeholder: Describe the current behavior pointing exactly why it's not working as intended
-  - type: textarea
-    id: expectedbehavior
-    attributes:
-      label: Expected behavior
-      placeholder: Describe what the desired behavior should be
+      label: Possible Solution
+      description: Also, if possible provide the information on how to implement the solution.
+      placeholder: Do you have any possible solution or fix for this bug?
     validations:
-      required: true
+      required: false
   - type: textarea
     id: reproduce
     attributes:
       label: Steps to reproduce
-      placeholder: Please provide the steps to reproduce and if possible a minimal reproducible example of the problem
+      description: Please provide detailed instructions on how to reproduce.
+      placeholder: How we can reproduce this bug?
+    validations:
+      required: false
   - type: input
     attributes:
-      label: What version of Vue Storefront are you using?
-      description: 'For example: 2.3.4'
+      label: What version of Sylius integration are you using?
+      description: 'For example: 1.0.0'
     validations:
       required: true
   - type: input
@@ -64,20 +70,10 @@ body:
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
   - type: checkboxes
-    id: fixthebug
-    attributes:
-      label: Able to fix / change the documentation?
-      description: Can you handle this change and create a Pull Request?
-      options:
-        - label: 'Yes'
-          required: false
-        - label: 'No'
-          required: false
-  - type: checkboxes
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/vuestorefront/vue-storefront/blob/master/CODE_OF_CONDUCT.md)
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/vuestorefront-community/sylius/blob/master/CODE_OF_CONDUCT.md)
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true

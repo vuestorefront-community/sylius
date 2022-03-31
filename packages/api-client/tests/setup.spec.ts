@@ -1,4 +1,4 @@
-import { createApiClient } from './../src/index.server';
+import { createApiClient } from '../src/index.server';
 
 jest.mock('apollo-client');
 
