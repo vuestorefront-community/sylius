@@ -2,25 +2,34 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "build:sylius:api-client": "cd packages/api-client && yarn build",
-    "build:sylius:composables": "cd packages/composables && yarn build",
-    "build:sylius:tools": "yarn build:sylius:api-client && yarn build:sylius:composables",
-    "build:sylius:theme": "cd packages/theme && yarn build",
-    "build:sylius": "yarn build:sylius:tools && yarn build:sylius:theme",
-    "test:sylius:api-client": "cd packages/api-client && yarn test",
-    "dev:sylius:api-client": "cd packages/api-client && yarn dev",
-    "dev:sylius:composables": "cd packages/composables && yarn dev",
-    "dev:sylius:theme": "cd packages/theme && yarn dev",
-    "dev:sylius": "concurrently \"yarn:dev:sylius:*\"",
-    "start:sylius": "cd packages/theme && yarn start",
-    "cli": "cd packages/core/cli && yarn cli",
+    "build": "yarn build:api-client && yarn build:theme",
+    "build:api-client": "cd packages/api-client && yarn build",
+    "build:theme": "cd packages/theme && yarn build",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate",
+    "dev:api-client": "cd packages/api-client && yarn dev",
+    "dev:theme": "cd packages/theme && yarn dev",
+    "docs:install": "cd docs && yarn",
+    "docs:dev": "cd docs && yarn dev",
+    "docs:build": "cd docs && yarn build",
+    "lint": "eslint . --ext .ts,.vue --fix",
+    "prepare": "[ -d '.husky' ] && (husky install && shx rm -rf .git/hooks && shx ln -s ../.husky .git/hooks) || true",
+    "publish:api-client": "node ./scripts/publishApi.js",
+    "start": "cd packages/theme && yarn start",
+    "test": "yarn test:api-client && yarn test:theme",
+    "test:api-client": "cd packages/api-client && yarn test --passWithNoTests",
+    "test:theme": "cd packages/theme && yarn test --passWithNoTests",
+    "update:check": "ncu && lerna run update:check --stream",
+    "update:update": "ncu -u && lerna run update:update --stream",
     "commit": "cz",
     "heroku-postbuild": "scripts/build.sh"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
-    "@commitlint/cli": "^13.1.0",
-    "@commitlint/config-conventional": "^13.1.0",
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@commitlint/config-lerna-scopes": "^16.0.0",
+    "@manypkg/cli": "^0.19.1",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-replace": "^3.0.0",
     "@types/jest": "^26.0.24",
@@ -28,6 +37,7 @@
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
     "@vue/eslint-config-typescript": "^7.0.0",
+    "all-contributors-cli": "^6.20.0",
     "commitizen": "^4.2.4",
     "cross-env": "^6.0.3",
     "cz-conventional-changelog": "^3.3.0",
@@ -42,10 +52,12 @@
     "jest": "^27.0.6",
     "lerna": "^3.15.0",
     "lint-staged": "^10.0.7",
+    "majestic": "^1.8.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.59.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
+    "shx": "^0.3.4",
     "ts-jest": "^27.0.3",
     "ts-node": "^8.4.1",
     "tslib": "^2.1.0",
@@ -58,25 +70,8 @@
       "packages/**/*"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,ts,vue}": "eslint --fix"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog",
-      "maxHeaderWidth": 100,
-      "maxLineWidth": 100
-    }
-  },
   "engines": {
-    "node": "14.19.0"
-  },
-  "dependencies": {
-    "concurrently": "^6.4.0"
+    "node": ">=16.x.x",
+    "yarn": "1.x.x||>=3.x.x"
   }
 }
