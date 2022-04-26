@@ -29,49 +29,6 @@ const params: UseUserFactoryParams<User, any, any> = {
   },
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  logOut: async (context: Context) => {
-    const apiState = context.$sylius.config.state;
-    apiState.setCustomerToken(null);
-    apiState.setCustomerRefreshToken(null);
-    apiState.setCustomerId(null);
-    apiState.setCartId(null);
-  },
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  updateUser: async (context: Context, { currentUser, updatedUserData, customQuery }) => {
-    const apiState = context.$sylius.config.state;
-    return await context.$sylius.api.updateUserProfile({
-      customer: {
-        id: apiState.getCustomerId(),
-        // emailCanonical: updatedUserData.email,
-        ...updatedUserData
-      }
-    }, customQuery);
-  },
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  register: async (context: Context, { email, password, firstName, lastName }) => {
-    try {
-      const registerUserResponse = await context.$sylius.api.registerUser({
-        user: {
-          firstName,
-          lastName,
-          password,
-          email
-        }
-      });
-      await params.logIn(context, { username: email, password});
-      return registerUserResponse;
-    } catch (err) {
-      const error = {
-        ...err?.response?.data?.graphQLErrors?.[0],
-        message: err?.response?.data?.graphQLErrors?.[0].debugMessage
-      };
-      throw error;
-    }
-  },
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   logIn: async (context: Context, { username, password }) => {
     const apiState = context.$sylius.config.state;
     const orderTokenValue = apiState.getCartId()?.replace('/api/v2/shop/orders/', '');
@@ -99,6 +56,49 @@ const params: UseUserFactoryParams<User, any, any> = {
       }
     }
     return params.load(context);
+  },
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  logOut: async (context: Context) => {
+    const apiState = context.$sylius.config.state;
+    apiState.setCustomerToken(null);
+    apiState.setCustomerRefreshToken(null);
+    apiState.setCustomerId(null);
+    apiState.setCartId(null);
+  },
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  register: async (context: Context, { email, password, firstName, lastName }) => {
+    try {
+      const registerUserResponse = await context.$sylius.api.registerUser({
+        user: {
+          firstName,
+          lastName,
+          password,
+          email
+        }
+      });
+      await params.logIn(context, { username: email, password});
+      return registerUserResponse;
+    } catch (err) {
+      const error = {
+        ...err?.response?.data?.graphQLErrors?.[0],
+        message: err?.response?.data?.graphQLErrors?.[0].debugMessage
+      };
+      throw error;
+    }
+  },
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  updateUser: async (context: Context, { currentUser, updatedUserData, customQuery }) => {
+    const apiState = context.$sylius.config.state;
+    return await context.$sylius.api.updateUserProfile({
+      customer: {
+        id: apiState.getCustomerId(),
+        // emailCanonical: updatedUserData.email,
+        ...updatedUserData
+      }
+    }, customQuery);
   },
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

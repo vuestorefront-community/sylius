@@ -86,7 +86,7 @@ import {
   SfCircleIcon
 } from '@storefront-ui/vue';
 import { onSSR } from '@vue-storefront/core';
-import { computed, ref } from '@vue/composition-api';
+import { computed, ref } from '@nuxtjs/composition-api';
 import { useCart, cartGetters } from '@realtainment/sylius';
 import { useUiNotification } from '~/composables/';
 

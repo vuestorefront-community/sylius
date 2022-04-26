@@ -69,7 +69,6 @@ export default {
     });
     const form = ref(resetForm());
     const submitForm = (resetValidationFn) => {
-      console.log(form.value);
       return () => {
         const onComplete = () => {
           form.value = resetForm();

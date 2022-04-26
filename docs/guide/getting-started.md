@@ -59,7 +59,7 @@ customHeaders: {
 }
 ```
 
-## Commands
+## YARN Commands
 
 ### `yarn build:sylius`
 

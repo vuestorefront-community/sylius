@@ -3,7 +3,7 @@ import {
   useMakeOrderFactory,
   UseMakeOrderFactoryParams
 } from '@vue-storefront/core';
-import type { Order } from '@realtainment/sylius-api';
+import type { Order, MakeOrderInput } from '@realtainment/sylius-api';
 import { useCart } from '../useCart';
 const factoryParams: UseMakeOrderFactoryParams<Order> = {
   provide() {
@@ -13,15 +13,11 @@ const factoryParams: UseMakeOrderFactoryParams<Order> = {
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   make: async (context: Context, { customQuery }) => {
-    const apiState = context.$sylius.config.state;
-    const order = {
+    const order: MakeOrderInput = {
       id: `/api/v2/shop/orders/${context.cart.cart.value.tokenValue}`,
       orderTokenValue: context.cart.cart.value.tokenValue
     };
-    const makeOrderResponse = await context.$sylius.api.createOrder({ order }, customQuery);
-    apiState.setCartId(null);
-    context.cart.load({ customQuery });
-    return makeOrderResponse;
+    return await context.$sylius.api.createOrder({ order }, customQuery);
   }
 };
 
