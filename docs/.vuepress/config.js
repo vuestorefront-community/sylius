@@ -36,7 +36,13 @@ module.exports = {
         title: 'Composables',
         collapsable: false,
         children: [
-          ['/guide/composables/sylius', 'Types']
+          ['/guide/composables/useCart', 'useCart'],
+          ['/guide/composables/useProduct', 'useProduct'],
+          ['/guide/composables/useCategory', 'useCategory'],
+          ['/guide/composables/useReview', 'useReview'],
+          ['/guide/composables/useMakeOrder', 'useMakeOrder'],
+          ['/guide/composables/useUser', 'useUser'],
+          ['/guide/composables/useUserShipping', 'useUserShipping'],
         ]
       },
       {

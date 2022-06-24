@@ -10,7 +10,7 @@ import type {
   Product
 } from '@realtainment/sylius-api';
 const params: UseCartFactoryParams<Cart, CartItem, Product> = {
-  load: async (context: Context) => {
+  load: async (context: Context): Promise<Cart> => {
     const apiState = context.$sylius.config.state;
     let cartId = apiState.getCartId();
 
@@ -56,15 +56,6 @@ const params: UseCartFactoryParams<Cart, CartItem, Product> = {
     }, customQuery);
     return cart;
   },
-  removeItem: async (context: Context, { product, customQuery}) => {
-    const apiState = context.$sylius.config.state;
-    const cartId = apiState.getCartId();
-    const cart = await context.$sylius.api.removeFromCart({
-      cartId,
-      itemId: String((product as Product)._id)
-    }, customQuery);
-    return cart;
-  },
   updateItemQty: async (context: Context, { product, quantity, customQuery }) => {
     const apiState = context.$sylius.config.state;
     const cartId = apiState.getCartId();
@@ -75,6 +66,15 @@ const params: UseCartFactoryParams<Cart, CartItem, Product> = {
     }, customQuery);
     return cart;
   },
+  removeItem: async (context: Context, { product, customQuery}) => {
+    const apiState = context.$sylius.config.state;
+    const cartId = apiState.getCartId();
+    const cart = await context.$sylius.api.removeFromCart({
+      cartId,
+      itemId: String((product as Product)._id)
+    }, customQuery);
+    return cart;
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   clear: async (context: Context) => {
     const apiState = context.$sylius.config.state;
@@ -82,7 +82,7 @@ const params: UseCartFactoryParams<Cart, CartItem, Product> = {
     return await context.$sylius.api.clearCart({ cartId });
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  applyCoupon: async (context: Context, { currentCart, couponCode, customQuery }) => {
+  applyCoupon: async (context: Context, { couponCode, customQuery }) => {
     const apiState = context.$sylius.config.state;
     const orderTokenValue = apiState.getCartId().replace('/api/v2/shop/orders/', '');
     try {
@@ -103,7 +103,7 @@ const params: UseCartFactoryParams<Cart, CartItem, Product> = {
   },
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  removeCoupon: async (context: Context, { currentCart, customQuery, couponCode }) => {
+  removeCoupon: async (context: Context, { customQuery, couponCode }) => {
     const apiState = context.$sylius.config.state;
     const orderTokenValue = apiState.getCartId().replace('/api/v2/shop/orders/', '');
     const removeCouponResponse = await context.$sylius.api.removeCouponFromCart({

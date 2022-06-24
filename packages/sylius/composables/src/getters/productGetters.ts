@@ -110,7 +110,7 @@ export const getProductOptions = (product: Product): any => {
   return options;
 };
 
-export const getProductDescription = (product: Product): any => (product as any)?.description || '';
+export const getProductDescription = (product: Product): string => (product as any)?.description || '';
 
 export const getProductCategoryIds = (product: Product): string[] => (product as any)?._categoriesRef || '';
 

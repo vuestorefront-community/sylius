@@ -1,4 +1,4 @@
-import {loginMutation, refreshLoginTokenMutation, addAddressMutation, updateAddressMutation,
+import { loginMutation, refreshLoginTokenMutation, addAddressMutation, updateAddressMutation,
   updatePasswordMutation, updateProfileMutation, deleteAddressMutation,
   resetPasswordMutation, triggerResetPasswordMutation, registerMutation
 } from './mutations';

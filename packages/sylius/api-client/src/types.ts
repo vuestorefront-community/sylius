@@ -164,8 +164,12 @@ export type Facet = TODO;
 
 export type FacetSearchCriteria = TODO;
 
-export type Order = TODO;
+export type MakeOrderInput = {
+  id: string;
+  orderTokenValue: string;
+};
 
+export type Order = TODO;
 export type OrderItem = TODO;
 
 export type PasswordResetResult = TODO;

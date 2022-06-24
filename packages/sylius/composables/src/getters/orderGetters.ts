@@ -47,7 +47,7 @@ export const getItemQty = (item: any): number => item.quantity;
 export const getItemPrice = (item: any): number => item.total / 100;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const getFormattedPrice = (price: number) => String(price);
+export const getFormattedPrice = (price: number): string => String(price);
 
 function getOrdersTotal(orders: any): number {
   return orders.total;
