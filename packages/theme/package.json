@@ -1,5 +1,5 @@
 {
-  "name": "@vuestorefront/sylius-theme",
+  "name": "@vue-storefront/sylius-theme",
   "version": "1.0.2",
   "scripts": {
     "dev": "nuxt",

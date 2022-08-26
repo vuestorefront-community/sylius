@@ -1,5 +1,5 @@
 {
-  "name": "@vuestorefront/sylius-api",
+  "name": "@vue-storefront/sylius-api",
   "description": "Sylius Api Client",
   "version": "1.1.2",
   "server": "server/index.js",
