@@ -121,7 +121,7 @@ import {
 } from '@storefront-ui/vue';
 import { onSSR } from '@vue-storefront/core';
 import { ref, computed } from '@vue/composition-api';
-import { useMakeOrder, useCart, cartGetters, orderGetters } from '@realtainment/sylius';
+import { useMakeOrder, useCart, cartGetters, orderGetters } from '@vue-storefront/sylius';
 
 export default {
   name: 'ReviewOrder',

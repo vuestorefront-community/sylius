@@ -1,7 +1,7 @@
 module.exports = {
   integrations: {
     sylius: {
-      location: '@realtainment/sylius-api/server',
+      location: '@vue-storefront/sylius-api/server',
       configuration: {
         api: 'https://sylius-vsf2.bitbag.shop/api/v2/graphql',
         locale: 'en_US',

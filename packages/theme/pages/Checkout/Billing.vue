@@ -196,7 +196,7 @@ import {
   SfCheckbox
 } from '@storefront-ui/vue';
 import { ref, computed, onMounted } from '@vue/composition-api';
-import { useBilling, useUser, useUserBilling, userBillingGetters } from '@realtainment/sylius';
+import { useBilling, useUser, useUserBilling, userBillingGetters } from '@vue-storefront/sylius';
 import { required, min, digits, email } from 'vee-validate/dist/rules';
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate';
 import { onSSR, useVSFContext } from '@vue-storefront/core';

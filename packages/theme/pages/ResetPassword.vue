@@ -66,7 +66,7 @@
 
 import { SfModal, SfButton, SfLoader, SfBar, SfInput } from '@storefront-ui/vue';
 import { ref, computed } from '@vue/composition-api';
-import { useForgotPassword, forgotPasswordGetters } from '@realtainment/sylius';
+import { useForgotPassword, forgotPasswordGetters } from '@vue-storefront/sylius';
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate';
 import { required } from 'vee-validate/dist/rules';
 

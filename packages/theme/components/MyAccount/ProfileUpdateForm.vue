@@ -101,7 +101,7 @@
 <script>
 import { ref, onMounted } from '@vue/composition-api';
 import { ValidationProvider, ValidationObserver } from 'vee-validate';
-import { useUser, userGetters } from '@realtainment/sylius';
+import { useUser, userGetters } from '@vue-storefront/sylius';
 import { SfInput, SfButton, SfSelect, SfCheckbox } from '@storefront-ui/vue';
 import { parse as parseDate, format as formatDate } from 'date-fns';
 export default {

@@ -121,7 +121,7 @@ import {
   SfQuantitySelector
 } from '@storefront-ui/vue';
 import { computed } from '@vue/composition-api';
-import { useCart, useUser, cartGetters } from '@realtainment/sylius';
+import { useCart, useUser, cartGetters } from '@vue-storefront/sylius';
 import { useUiState } from '~/composables';
 import debounce from 'lodash.debounce';
 

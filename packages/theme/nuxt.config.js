@@ -50,11 +50,11 @@ export default {
       // @core-development-only-end
       useRawSource: {
         dev: [
-          '@realtainment/sylius',
+          '@vue-storefront/sylius',
           '@vue-storefront/core'
         ],
         prod: [
-          '@realtainment/sylius',
+          '@vue-storefront/sylius',
           '@vue-storefront/core'
         ]
       }
@@ -63,8 +63,8 @@ export default {
     ['@vue-storefront/nuxt-theme', {
       generate: {
         replace: {
-          apiClient: '@realtainment/sylius-api',
-          composables: '@realtainment/sylius'
+          apiClient: '@vue-storefront/sylius-api',
+          composables: '@vue-storefront/sylius'
         }
       }
     }],
@@ -72,7 +72,7 @@ export default {
     /* project-only-start
     ['@vue-storefront/nuxt-theme'],
     project-only-end */
-    ['@realtainment/sylius/nuxt', {}]
+    ['@vue-storefront/sylius/nuxt', {}]
   ],
   modules: [
     'nuxt-i18n',

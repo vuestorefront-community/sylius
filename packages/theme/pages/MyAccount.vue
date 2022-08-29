@@ -34,7 +34,7 @@
 <script>
 import { SfBreadcrumbs, SfContentPages } from '@storefront-ui/vue';
 import { computed, onBeforeUnmount } from '@vue/composition-api';
-import { useUser } from '@realtainment/sylius';
+import { useUser } from '@vue-storefront/sylius';
 import MyProfile from './MyAccount/MyProfile';
 import ShippingDetails from './MyAccount/ShippingDetails';
 import OrderHistory from './MyAccount/OrderHistory';
