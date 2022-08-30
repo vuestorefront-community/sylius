@@ -18,17 +18,7 @@ export { useUserShipping } from './composables/useUserShipping';
 export { useWishlist } from './composables/useWishlist';
 
 // Getters
-export { cartGetters } from './getters/cartGetters';
-export { categoryGetters } from './getters/categoryGetters';
-export { facetGetters } from './getters/facetGetters';
-export { forgotPasswordGetters } from './getters/forgotPasswordGetters';
-export { orderGetters } from './getters/orderGetters';
-export { productGetters } from './getters/productGetters';
-export { reviewGetters } from './getters/reviewGetters';
-export { userBillingGetters } from './getters/userBillingGetters';
-export { userGetters } from './getters/userGetters';
-export { userShippingGetters } from './getters/userShippingGetters';
-export { wishlistGetters } from './getters/wishlistGetters';
+export * from './getters';
 
 // Types
 export * from './types';
