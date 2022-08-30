@@ -6,7 +6,7 @@ import {
 import type { BillingAddress } from '@vue-storefront/sylius-api';
 import type {
   UseBillingAddParams as AddParams
-} from '../types';
+} from '../../types';
 import { useCart } from '../useCart';
 const params: UseBillingParams<BillingAddress, AddParams> = {
   provide() {
