@@ -95,7 +95,7 @@ export const getCoupons = (cart: Cart): AgnosticCoupon[] => [];
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getDiscounts = (cart: Cart): AgnosticDiscount[] => {
-  if (cart.promotionCoupon) {
+  if (cart?.promotionCoupon) {
     const promotion = {
       id: cart.promotionCoupon.code,
       name: cart.promotionCoupon.promotion.name,
