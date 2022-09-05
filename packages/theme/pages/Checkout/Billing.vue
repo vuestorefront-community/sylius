@@ -260,11 +260,8 @@ export default {
       let hasErrors = false;
       if (errors.length) {
         errors.forEach(errorKey => {
-          if (
-            error.value[errorKey] &&
-            error.value[errorKey]?.response?.data?.graphQLErrors?.length
-          ) {
-            const e = error.value[errorKey].response.data.graphQLErrors[0];
+          if (error.value[errorKey]?.graphQLErrors?.length) {
+            const e = error.value[errorKey].graphQLErrors[0];
             send({ type: 'danger', message: e.debugMessage});
             hasErrors = true;
 

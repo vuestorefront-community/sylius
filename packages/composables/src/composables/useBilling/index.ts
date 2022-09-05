@@ -41,6 +41,9 @@ const params: UseBillingParams<BillingAddress, AddParams> = {
       }
     };
     const addAddressResponse = await context.$sylius.api.addAddress({ addAddressInput });
+
+    if (addAddressResponse.graphQLErrors) throw addAddressResponse;
+
     return addAddressResponse.billingAddress;
   }
 };
