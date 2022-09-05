@@ -50,8 +50,8 @@ export default {
     SfContentPages,
     MyProfile,
     ShippingDetails,
-    OrderHistory,
-    MyReviews
+    OrderHistory
+    // MyReviews
   },
   middleware: [
     'is-authenticated'
