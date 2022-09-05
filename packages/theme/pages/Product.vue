@@ -129,14 +129,6 @@
     </div>
 
     <LazyHydrate when-visible>
-      <RelatedProducts
-        :products="relatedProducts"
-        :loading="relatedLoading"
-        title="Match it with"
-      />
-    </LazyHydrate>
-
-    <LazyHydrate when-visible>
       <InstagramFeed />
     </LazyHydrate>
 
@@ -168,7 +160,6 @@ import {
 } from '@storefront-ui/vue';
 
 import InstagramFeed from '~/components/InstagramFeed.vue';
-import RelatedProducts from '~/components/RelatedProducts.vue';
 import AddReviewForm from '~/components/Product/AddReviewForm.vue';
 import { ref, computed } from '@vue/composition-api';
 import { useProduct, useCart, productGetters, useReview, reviewGetters, useUser } from '@vue-storefront/sylius';
@@ -184,9 +175,6 @@ export default {
     const { id, slug } = context.root.$route.params;
     const { isAuthenticated } = useUser();
     const { products, search } = useProduct('products');
-    // const { products: relatedProducts, search: searchRelatedProducts, loading: relatedLoading } = useProduct('relatedProducts');
-    const relatedProducts = computed(() => []);
-    const relatedLoading = false;
 
     const { addItem, loading } = useCart();
     const { reviews: productReviews, search: searchReviews, addReview } = useReview('productReviews');
@@ -211,7 +199,6 @@ export default {
 
     onSSR(async () => {
       await search({ slug, query: context.root.$route.query});
-      // await searchRelatedProducts({ catId: [categories.value[0]], limit: 8 });
       await searchReviews({ productId: id });
     });
 
@@ -253,8 +240,6 @@ export default {
       price: computed(() => productGetters.getPrice(product.value)),
       averageRating: computed(() => productGetters.getAverageRating(product.value)),
       totalReviews: computed(() => reviewGetters.getTotalReviews(productReviews.value)),
-      relatedProducts: computed(() => productGetters.getFiltered(relatedProducts.value, { master: true })),
-      relatedLoading,
       options,
       qty,
       addItem,
@@ -284,7 +269,6 @@ export default {
     SfBreadcrumbs,
     SfButton,
     InstagramFeed,
-    RelatedProducts,
     MobileStoreBanner,
     LazyHydrate,
     AddReviewForm
