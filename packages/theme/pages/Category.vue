@@ -399,11 +399,11 @@ export default {
   }
   &__slide-enter {
     opacity: 0;
-    transform: scale(0.5);
+    transform: scale(.5);
   }
   &__slide-enter-active {
-    transition: all 0.2s ease;
-    transition-delay: calc(0.1s * var(--index));
+    transition: all .2s ease;
+    transition-delay: calc(.1s * var(--index));
   }
   @include for-desktop {
     &__grid {
