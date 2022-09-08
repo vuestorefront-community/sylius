@@ -196,7 +196,7 @@ import {
   SfCheckbox
 } from '@storefront-ui/vue';
 import { ref, computed, onMounted } from '@vue/composition-api';
-import { useBilling, useUser, useUserBilling, userBillingGetters } from '@realtainment/sylius';
+import { useBilling, useUser, useUserBilling, userBillingGetters } from '@vue-storefront/sylius';
 import { required, min, digits, email } from 'vee-validate/dist/rules';
 import { ValidationProvider, ValidationObserver, extend } from 'vee-validate';
 import { onSSR, useVSFContext } from '@vue-storefront/core';
@@ -260,11 +260,8 @@ export default {
       let hasErrors = false;
       if (errors.length) {
         errors.forEach(errorKey => {
-          if (
-            error.value[errorKey] &&
-            error.value[errorKey]?.response?.data?.graphQLErrors?.length
-          ) {
-            const e = error.value[errorKey].response.data.graphQLErrors[0];
+          if (error.value[errorKey]?.graphQLErrors?.length) {
+            const e = error.value[errorKey].graphQLErrors[0];
             send({ type: 'danger', message: e.debugMessage});
             hasErrors = true;
 

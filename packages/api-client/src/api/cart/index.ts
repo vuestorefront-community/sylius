@@ -31,7 +31,7 @@ export const getCart = async (context, cartId: string, customQuery?: CustomQuery
     acceptLanguage
   };
   const queryGql = extendQuery(context, getCartQuery, variables, customQuery);
-  const data = await query(context, queryGql, variables);
+  const data = await query(context, queryGql.query, variables);
   return data.order ? transformCart(context, data.order) : {};
 };
 

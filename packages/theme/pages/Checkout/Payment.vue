@@ -75,14 +75,6 @@
 
         <VsfPaymentProvider @status="isPaymentReady = true"/>
 
-        <SfCheckbox v-e2e="'terms'" v-model="terms" name="terms" class="summary__terms">
-          <template #label>
-            <div class="sf-checkbox__label">
-              {{ $t('I agree to') }} <SfLink href="#"> {{ $t('Terms and conditions') }}</SfLink>
-            </div>
-          </template>
-        </SfCheckbox>
-
         <div class="summary__action">
           <SfButton
             type="button"
@@ -93,7 +85,7 @@
           </SfButton>
           <SfButton
             v-e2e="'make-an-order'"
-            :disabled="loading || !isPaymentReady || !terms"
+            :disabled="loading || !isPaymentReady"
             class="summary__action-button"
             @click="processOrder"
           >
@@ -121,7 +113,7 @@ import {
 } from '@storefront-ui/vue';
 import { onSSR } from '@vue-storefront/core';
 import { ref, computed } from '@vue/composition-api';
-import { useMakeOrder, useCart, cartGetters, orderGetters } from '@realtainment/sylius';
+import { useMakeOrder, useCart, cartGetters, orderGetters } from '@vue-storefront/sylius';
 
 export default {
   name: 'ReviewOrder',
@@ -144,7 +136,6 @@ export default {
     const { order, make, loading } = useMakeOrder();
 
     const isPaymentReady = ref(false);
-    const terms = ref(false);
 
     onSSR(async () => {
       await load();
@@ -159,7 +150,6 @@ export default {
 
     return {
       isPaymentReady,
-      terms,
       loading,
       products: computed(() => cartGetters.getItems(cart.value)),
       totals: computed(() => cartGetters.getTotals(cart.value)),
@@ -214,9 +204,6 @@ export default {
   --price-font-size: var(--font-size--base);
 }
 .summary {
-  &__terms {
-    margin: var(--spacer-base) 0 0 0;
-  }
   &__total {
     margin: 0 0 var(--spacer-sm) 0;
     flex: 0 0 16.875rem;

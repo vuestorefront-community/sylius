@@ -78,7 +78,7 @@
 <script>
 import { SfHeading, SfButton, SfCallToAction } from '@storefront-ui/vue';
 import { ref, computed } from '@vue/composition-api';
-import { useMakeOrder } from '@realtainment/sylius';
+import { useMakeOrder } from '@vue-storefront/sylius';
 export default {
   components: {
     SfHeading,

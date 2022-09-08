@@ -11,7 +11,7 @@ You can read more about middleware configuration in Vue Storefront [here](https:
 module.exports = {
   integrations: {
     sylius: {
-      location: '@realtainment/sylius-api/server',
+      location: '@vue-storefront/sylius-api/server',
       configuration: {
         api: 'YOUR SYLIUS GRAPHQL URL',
         locale: 'en_US',

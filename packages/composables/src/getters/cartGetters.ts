@@ -1,5 +1,5 @@
 import { CartGetters, AgnosticPrice, AgnosticTotals, AgnosticCoupon, AgnosticDiscount } from '@vue-storefront/core';
-import { Cart, CartLineItem } from '@realtainment/sylius-api/src/types';
+import { Cart, CartLineItem } from '@vue-storefront/sylius-api/src/types';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getCartItems = (cart: Cart): CartLineItem[] => {
@@ -95,7 +95,7 @@ export const getCoupons = (cart: Cart): AgnosticCoupon[] => [];
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getDiscounts = (cart: Cart): AgnosticDiscount[] => {
-  if (cart.promotionCoupon) {
+  if (cart?.promotionCoupon) {
     const promotion = {
       id: cart.promotionCoupon.code,
       name: cart.promotionCoupon.promotion.name,

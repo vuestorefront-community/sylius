@@ -4,7 +4,7 @@ import {
   AgnosticPrice,
   ProductGetters
 } from '@vue-storefront/core';
-import { Product } from '@realtainment/sylius-api/src/types';
+import { Product } from '@vue-storefront/sylius-api/src/types';
 
 type ProductVariantFilters = any
 
