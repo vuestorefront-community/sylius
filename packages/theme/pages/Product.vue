@@ -6,7 +6,7 @@
     />
     <div class="product">
       <LazyHydrate when-idle>
-        <SfGallery :images="productGallery" class="product__gallery" />
+        <SfGallery v-if="productGallery" :images="productGallery" class="product__gallery" />
       </LazyHydrate>
 
       <div class="product__info" v-if="product">
@@ -179,9 +179,7 @@ export default {
     const { addItem, loading } = useCart();
     const { reviews: productReviews, search: searchReviews, addReview } = useReview('productReviews');
 
-    const product = computed(() => {
-      return products.value.products && productGetters.getFiltered(products.value.products, { master: true, attributes: context.root.$route.query })[0];
-    });
+    const product = computed(() => products.value.products && productGetters.getFiltered(products.value.products, { master: true, attributes: context.root.$route.query })[0]);
 
     const options = computed(() => productGetters.getAttributes(products.value?.products, ['color', 'size'])) || [];
     const configuration = computed(() => productGetters.getAttributes(product?.value, ['color', 'size'])) || [];
@@ -190,7 +188,8 @@ export default {
 
     // TODO: Breadcrumbs are temporary disabled because productGetters return undefined. We have a mocks in data
     // const breadcrumbs = computed(() => productGetters.getBreadcrumbs ? productGetters.getBreadcrumbs(product.value) : props.fallbackBreadcrumbs);
-    const productGallery = computed(() => productGetters.getGallery(product.value).map(img => ({
+
+    const productGallery = computed(() => product?.value && productGetters.getGallery(product?.value).map(img => ({
       mobile: { url: img.small },
       desktop: { url: img.small },
       big: { url: img.small },
