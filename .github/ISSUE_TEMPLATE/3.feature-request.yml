@@ -30,17 +30,11 @@ body:
     attributes:
       label: Additional information
       description: If you think that any additional information would be useful please provide them here.
-  - type: input
-    attributes:
-      label: What version of Vue Storefront this feature can be implemented?
-      description: 'For example: 2.3.4'
-    validations:
-      required: true
   - type: checkboxes
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/vuestorefront/vue-storefront/blob/master/CODE_OF_CONDUCT.md)
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/vuestorefront-community/sylius/blob/master/CODE_OF_CONDUCT.md)
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true

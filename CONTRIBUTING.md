@@ -1,30 +1,27 @@
 # Contributing
 
-We are very happy that you want to contribute to Vue Storefront. 
-To create a perfect experience for everyone in the community, there are a set of rules and best practices which our repository got.
+Yeay! You want to contribute to @vuestorefront-community/sylius. That's amazing! To smoothen everyone's experience involved with the project please take note of the following guidelines and rules.
 
-Please take note of the following guidelines and rules.
 
 ## Found an Issue?
 
-Thank you for reporting any issues you find. 
-
-We do our best to test and make our repository as solid as possible, but any reported issue is a real help.
+Thank you for reporting any issues you find. We do our best to test and make @vuestorefront-community/sylius as solid as possible, but any reported issue is a real help.
 
 Please follow these guidelines when reporting issues:
 
-- Provide a title in the format of Ex: `[BUG]: <Error> when <Task>`, `[Issue]: When I try to <x>, an <Error> appears`
-- Tag your issue with the tag `triage-needed`
+- Provide a title in the format of `<Error> when <Task>`
+- Tag your issue with the tag `bug`
 - Provide a short summary of what you are trying to do
 - Provide the log of the encountered error if applicable
-- Provide the exact version of the framework you are using.
+- Provide the exact version of @vuestorefront-community/sylius.
 - Be awesome and consider contributing a [pull request](#want-to-contribute)
 
 ## Want to contribute?
 
-You consider contributing changes to our framework, this is awesome!
-
+You consider contributing changes to @vuestorefront-community/sylius – we dig that!
 Please consider these guidelines when filing a pull request:
+
+> @vuestorefront-community/sylius pull requests
 
 - Follow the [Coding Rules](#coding-rules)
 - Follow the [Commit Rules](#commit-rules)
@@ -39,19 +36,18 @@ Please consider these guidelines when filing a pull request:
 
 ## Coding Rules
 
-To keep the code base of our repository neat and tidy, we apply a set of rules to every change
+To keep the code base of @vuestorefront-community/sylius neat and tidy the following rules apply to every change
 
 > Coding standards
 
 - `eslint` is king
-- Favor micro library over swiss army knives (rimraf, ncp vs. fs-extra) - Just in case you really need one :)
+- Favor micro library over swiss army knives (rimraf, ncp vs. fs-extra)
 - Be awesome
 
 ## Commit Rules
 
-To help everyone with understanding the commit history of commits the following rules are enforced.
-
-To make your life easier our repository is commitizen-friendly and provides the npm run-script `commit`.
+To help everyone with understanding the commit history of commitlint the following commit rules are enforced.
+To make your life easier @vuestorefront-community/sylius is commitizen-friendly and provides the npm run-script `commit`.
 
 > Commit standards
 
@@ -60,3 +56,14 @@ To make your life easier our repository is commitizen-friendly and provides the 
 - present tense
 - maximum of 100 characters
 - message format of `$type($scope): $message`
+
+## Definition of done
+Issue is considered complete when:
+1. The issue has precise requirements (acceptance criteria) - if issue description is not clear, please reach us out by adding the comment to the issue
+2. Those requirements are implemented in the code
+3. Code is covered by tests (at least unit or integration)
+4. Code is reviewed and approved by at least 1 person
+5. Code is deployed to the dev environment and tested by the developer
+6. Code is deployed to the stage as a part of a release. (we will be releasing a new version after each sprint) and tested by the Q.A. engineer
+   1. tests including manual regression testing, usability, accessibility, and whether the business requirements are met
+7. Finally, the ticket is approved by the team leader/product owner and marked as done

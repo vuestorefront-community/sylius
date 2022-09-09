@@ -1,0 +1,38 @@
+{
+  "name": "@vue-storefront/sylius-api",
+  "description": "Sylius Api Client",
+  "version": "1.1.2",
+  "server": "server/index.js",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.es.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "rimraf lib server && rollup -c",
+    "dev": "rollup -c -w",
+    "test": "jest",
+    "prepublish": "yarn build"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.3.16",
+    "@vue-storefront/core": "^2.3.0",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link": "^1.2.14",
+    "apollo-link-context": "^1.0.20",
+    "apollo-link-error": "^1.1.13",
+    "apollo-link-http": "^1.5.17",
+    "apollo-link-retry": "^2.2.16",
+    "graphql": "^15.5.0",
+    "graphql-tag": "^2.12.4",
+    "isomorphic-fetch": "^3.0.0",
+    "query-string": "^7.0.1",
+    "rollup-plugin-graphql": "^0.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.31.2"
+  },
+  "files": [
+    "lib/**/*",
+    "server/**/*",
+    "README.md"
+  ]
+}

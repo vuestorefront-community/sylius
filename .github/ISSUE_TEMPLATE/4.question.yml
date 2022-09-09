@@ -14,8 +14,8 @@ body:
       required: true
   - type: input
     attributes:
-      label: What version of Vue Storefront are you using?
-      description: 'For example: 2.3.4'
+      label: What version of Sylius Integration are you using?
+      description: 'For example: 1.0.0'
     validations:
       required: true
   - type: checkboxes
